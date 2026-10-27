@@ -70,6 +70,18 @@
   line-height: 1.5;
 }
 
+.contact-details .contact-card-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 6px;
+}
+.contact-details .contact-card-line svg { flex-shrink: 0; margin-top: 3px; color: var(--gold-400); }
+.contact-details .contact-card-line > span { min-width: 0; overflow-wrap: anywhere; }
+.contact-details a { color: white; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.3); text-underline-offset: 3px; }
+.contact-details a:hover { color: var(--gold-300); }
+.contact-sep { color: rgba(255,255,255,0.4); }
+
 .branches-overview-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);

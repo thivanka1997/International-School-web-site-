@@ -1,4 +1,4 @@
-import { Phone, MapPin } from 'lucide-react';
+import { Phone, MapPin, Mail } from 'lucide-react';
 import logo from '/logo.png';
 import './Footer.css';
 
@@ -98,7 +98,7 @@ export default function Footer() {
             <div className="footer-contact-list">
               <div className="footer-contact-item">
                 <MapPin size={16} />
-                <span><strong>Boralesgamuwa Branch</strong> (Main)</span>
+                <span><strong>Boralesgamuwa Branch</strong> (Main)<br />15/6, Abeyrathne Mawatha, Boralesgamuwa</span>
               </div>
               <div className="footer-contact-item">
                 <MapPin size={16} />
@@ -110,7 +110,14 @@ export default function Footer() {
               </div>
               <div className="footer-contact-item">
                 <Phone size={16} />
-                <a href="tel:0777225582">077 722 5582</a>
+                <span><a href="tel:0112516000">011 251 6000</a> · <a href="tel:0777225582">077 722 5582</a></span>
+              </div>
+              <div className="footer-contact-item">
+                <Mail size={16} />
+                <span>
+                  <a href="mailto:principal.kbac@gmail.com">principal.kbac@gmail.com</a><br />
+                  <a href="mailto:principal@kingsbridgeamericancollege.com">principal@kingsbridgeamericancollege.com</a>
+                </span>
               </div>
             </div>
 

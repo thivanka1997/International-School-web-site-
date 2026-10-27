@@ -1,7 +1,14 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { CheckCircle2, ShieldCheck, Heart, MapPin, Sparkles, BookOpen, Compass } from 'lucide-react';
 import './About.css';
+
+// Photos that crossfade in the About frame
+const aboutPhotos = [
+  { src: '/images/kids_friends_group.webp', alt: 'Kingsbridge students laughing together arm in arm', pos: 'center 30%' },
+  { src: '/images/kids_circle.webp', alt: 'Young Kingsbridge students lying in a circle on a play mat', pos: 'center center' },
+];
 
 const keyFeatures = [
   { 
@@ -43,6 +50,12 @@ const branches = [
 
 export default function About() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [photo, setPhoto] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setPhoto((i) => (i + 1) % aboutPhotos.length), 5000);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <section id="about" className="about-section" ref={ref}>
@@ -72,11 +85,16 @@ export default function About() {
           >
             {/* Real Photo Card with Principal & Students */}
             <div className="about-photo-frame">
-              <img 
-                src="/images/principal_with_students.jpg" 
-                alt="Dr. Nadeesha Jayawardena with Kingsbridge students" 
-                className="about-real-img"
-              />
+              {aboutPhotos.map((p, i) => (
+                <img
+                  key={p.src}
+                  src={p.src}
+                  alt={p.alt}
+                  className={`about-real-img ${i === photo ? 'active' : ''}`}
+                  style={{ objectPosition: p.pos }}
+                  aria-hidden={i !== photo}
+                />
+              ))}
               <div className="about-photo-badge">
                 <Sparkles size={16} />
                 <span>Founded 2015 · Official Reg: PV 103044</span>

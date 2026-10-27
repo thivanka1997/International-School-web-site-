@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Phone, MapPin, Clock, Send, CheckCircle2, MessageCircle } from 'lucide-react';
+import { Phone, MapPin, Clock, Send, CheckCircle2, MessageCircle, Mail } from 'lucide-react';
 import './Contact.css';
 
 const branches = [
   {
     name: 'Boralesgamuwa Branch (Main)',
-    address: 'Boralesgamuwa, Colombo District, Sri Lanka',
-    phone: '077 722 5582',
+    address: '15/6, Abeyrathne Mawatha, Boralesgamuwa',
+    phone: '011 251 6000',
     grades: 'Pre-School, Primary (Grades 1–6) & Secondary',
   },
   {
@@ -153,9 +153,35 @@ export default function Contact() {
                     <h5>{b.name}</h5>
                     <p className="b-addr">{b.address}</p>
                     <p className="b-grades"><strong>Programmes:</strong> {b.grades}</p>
-                    <a href="tel:0777225582" className="b-call"><Phone size={14} /> Call: {b.phone}</a>
+                    <a href={`tel:${b.phone.replace(/\s/g, '')}`} className="b-call"><Phone size={14} /> Call: {b.phone}</a>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            <div className="contact-card contact-details">
+              <div className="contact-card-icon"><Mail size={22} /></div>
+              <div>
+                <h4 className="contact-card-title">Contact Us</h4>
+                <p className="contact-card-line">
+                  <MapPin size={14} /> <span>15/6, Abeyrathne Mawatha, Boralesgamuwa</span>
+                </p>
+                <p className="contact-card-line">
+                  <Phone size={14} />
+                  <span>
+                    <a href="tel:0112516000">011 251 6000</a>
+                    <span className="contact-sep"> · </span>
+                    <a href="tel:0777225582">077 722 5582</a>
+                  </span>
+                </p>
+                <p className="contact-card-line">
+                  <Mail size={14} />
+                  <span><a href="mailto:principal.kbac@gmail.com">principal.kbac@gmail.com</a></span>
+                </p>
+                <p className="contact-card-line">
+                  <Mail size={14} />
+                  <span><a href={`mailto:${ENQUIRY_EMAIL}`}>{ENQUIRY_EMAIL}</a></span>
+                </p>
               </div>
             </div>
 

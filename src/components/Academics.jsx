@@ -1,8 +1,57 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { BookOpen, Calculator, Globe, Palette, FlaskConical, Music, Dumbbell, Laptop, Heart, Bus, ShieldCheck } from 'lucide-react';
+import { BookOpen, Calculator, Globe, Palette, FlaskConical, Music, Dumbbell, Laptop, Heart, Bus, ShieldCheck, Users, GraduationCap } from 'lucide-react';
 import './Academics.css';
+
+const teacherPoints = [
+  { icon: <Users size={18} />, text: '35+ qualified teachers across our three branches' },
+  { icon: <GraduationCap size={18} />, text: "Educators holding Diplomas, Degrees, Honours & Master's Degrees" },
+  { icon: <Heart size={18} />, text: 'Every child guided with patience, love and respect' },
+];
+
+function TeachersBlock() {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  return (
+    <div className="teachers-block" ref={ref}>
+      <motion.figure
+        className="teachers-photo"
+        initial={{ opacity: 0, x: -40 }}
+        animate={inView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.7 }}
+      >
+        <img src="/images/teachers_team.jpg" alt="The Kingsbridge American College teaching staff" loading="lazy" />
+        <figcaption>Our teaching family · Kingsbridge American College</figcaption>
+      </motion.figure>
+
+      <motion.div
+        className="teachers-text"
+        initial={{ opacity: 0, x: 40 }}
+        animate={inView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.7, delay: 0.15 }}
+      >
+        <span className="section-tag gold">Meet Our Teachers</span>
+        <h3 className="teachers-title">
+          Dedicated Teachers, <em>Caring Hearts</em>
+        </h3>
+        <p className="teachers-desc">
+          Behind every happy, confident Kingsbridge child is a team of devoted teachers. They bring
+          knowledge, patience and genuine motherly care into every classroom — guiding each child
+          to learn, grow and shine, just as they would their own.
+        </p>
+        <ul className="teachers-points">
+          {teacherPoints.map((p) => (
+            <li key={p.text}>
+              <span className="teachers-point-icon">{p.icon}</span>
+              {p.text}
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+    </div>
+  );
+}
 
 const gradeBands = [
   {
@@ -191,6 +240,8 @@ export default function Academics() {
             ))}
           </div>
         </motion.div>
+
+        <TeachersBlock />
       </div>
     </section>
   );

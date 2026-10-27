@@ -1,26 +1,31 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, MapPin, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, MapPin, ChevronDown, ArrowRight } from 'lucide-react';
 import logo from '/logo.png';
 import './Navbar.css';
 
+// Grouped like an editorial school site: two dropdowns plus three direct links
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About & History', href: '#about' },
-  { 
-    label: 'Academics', 
-    href: '#academics', 
-    hasDropdown: true,
+  {
+    label: 'About',
+    href: '#about',
     dropdown: [
-      'Pre-School & Daycare (Age 2½+)', 
-      'Primary Education (Grades 1–5)', 
-      'Secondary & O/L (Grades 6–11)',
-      'School Transport & Facilities'
-    ] 
+      { label: 'About & History', href: '#about' },
+      { label: "Principal's Message", href: '#principal' },
+      { label: 'Our Branches', href: '#branches' },
+    ],
   },
-  { label: "Principal's Message", href: '#principal' },
-  { label: 'Activities & Events', href: '#news' },
-  { label: 'Branches', href: '#branches' },
+  {
+    label: 'Academics',
+    href: '#academics',
+    dropdown: [
+      { label: 'Pre-School & Daycare (Age 2½+)', href: '#academics' },
+      { label: 'Primary Education (Grades 1–5)', href: '#academics' },
+      { label: 'Secondary & O/L (Grades 6–11)', href: '#academics' },
+      { label: 'School Transport & Facilities', href: '#academics' },
+    ],
+  },
+  { label: 'Activities', href: '#news' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -82,7 +87,7 @@ export default function Navbar() {
               <div
                 key={link.label}
                 className="nav-item"
-                onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.label)}
+                onMouseEnter={() => link.dropdown && setActiveDropdown(link.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <a
@@ -91,9 +96,9 @@ export default function Navbar() {
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
                 >
                   {link.label}
-                  {link.hasDropdown && <ChevronDown size={14} />}
+                  {link.dropdown && <ChevronDown size={13} />}
                 </a>
-                {link.hasDropdown && activeDropdown === link.label && (
+                {link.dropdown && activeDropdown === link.label && (
                   <motion.div
                     className="dropdown"
                     initial={{ opacity: 0, y: 8 }}
@@ -102,9 +107,9 @@ export default function Navbar() {
                     transition={{ duration: 0.2 }}
                   >
                     {link.dropdown.map((item) => (
-                      <a key={item} href="#academics" className="dropdown-item"
-                         onClick={(e) => { e.preventDefault(); handleNavClick('#academics'); }}>
-                        {item}
+                      <a key={item.label} href={item.href} className="dropdown-item"
+                         onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}>
+                        {item.label}
                       </a>
                     ))}
                   </motion.div>
@@ -114,9 +119,10 @@ export default function Navbar() {
           </nav>
 
           {/* CTA */}
-          <a href="#contact" className="btn btn-primary navbar-cta"
+          <a href="#contact" className="navbar-cta"
              onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}>
             Apply Now
+            <ArrowRight size={15} />
           </a>
 
           {/* Mobile toggle */}
@@ -136,19 +142,22 @@ export default function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="mobile-link"
-                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a href="#contact" className="btn btn-primary mobile-cta"
+              {navLinks.flatMap((link) =>
+                (link.dropdown && link.label === 'About' ? link.dropdown : [link]).map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="mobile-link"
+                    onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
+                  >
+                    {item.label}
+                  </a>
+                ))
+              )}
+              <a href="#contact" className="navbar-cta mobile-cta"
                  onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}>
                 Apply Now
+                <ArrowRight size={15} />
               </a>
             </motion.div>
           )}

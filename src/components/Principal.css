@@ -1,0 +1,548 @@
+.principal-section {
+  padding: var(--section-padding);
+  background: linear-gradient(135deg, #f8faff 0%, #ffffff 50%, #fdfbf7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.principal-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 60px;
+}
+
+.principal-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+/* Left Visual Column */
+.principal-visual-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.principal-photo-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0, 48, 135, 0.16);
+  border: 1px solid rgba(0, 48, 135, 0.08);
+}
+
+.principal-photo-wrap {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  background: #001f5c;
+}
+
+.principal-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.principal-photo-card:hover .principal-main-img {
+  transform: scale(1.02);
+}
+
+.principal-photo-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(0, 31, 92, 0.88);
+  backdrop-filter: blur(10px);
+  color: var(--gold-300);
+  border: 1px solid rgba(200, 169, 81, 0.4);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.principal-id-details {
+  padding: 24px;
+}
+
+.principal-full-name {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.principal-title-tag {
+  color: var(--gold-600);
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 2px;
+}
+
+.principal-institution {
+  color: var(--gray-600);
+  font-size: 0.8rem;
+  margin-bottom: 14px;
+}
+
+.principal-branches-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--blue-50);
+  color: var(--blue-800);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.principal-personal-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #fdfaf3;
+  border-left: 3px solid var(--gold-500);
+  padding: 10px 12px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.75rem;
+  color: var(--gray-700);
+  line-height: 1.4;
+}
+
+.note-icon {
+  color: var(--gold-600);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Motherly Care Secondary Card */
+.motherly-care-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 48, 135, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.mc-photo-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.mc-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.mc-content {
+  flex: 1;
+}
+
+.mc-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.heart-icon {
+  color: #e11d48;
+}
+
+.mc-header h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  margin: 0;
+}
+
+.mc-content p {
+  font-size: 0.78rem;
+  color: var(--gray-600);
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Right Content Column */
+.principal-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Tabs */
+.principal-tabs {
+  display: flex;
+  gap: 12px;
+  background: #eef2f9;
+  padding: 6px;
+  border-radius: var(--radius-lg);
+  width: fit-content;
+}
+
+.ptab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  color: var(--gray-600);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.ptab-btn.active {
+  background: white;
+  color: var(--blue-800);
+  box-shadow: 0 4px 12px rgba(0, 48, 135, 0.1);
+}
+
+/* Message Card */
+.message-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  box-shadow: 0 15px 35px -5px rgba(0, 48, 135, 0.08);
+  border: 1px solid var(--gray-100);
+}
+
+.message-header-bar {
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.message-salutation {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.quote-badge {
+  color: var(--gold-500);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.message-salutation h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  margin-bottom: 4px;
+}
+
+.welcome-sub {
+  font-size: 0.82rem;
+  color: var(--gold-700);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.message-body {
+  color: var(--gray-700);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.lead-para {
+  font-size: 1.05rem;
+  color: var(--blue-950);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.highlight-quote-box {
+  background: linear-gradient(135deg, rgba(200, 169, 81, 0.08), rgba(0, 48, 135, 0.04));
+  border-left: 4px solid var(--gold-500);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 20px 0;
+  font-style: italic;
+  color: var(--blue-900);
+}
+
+.highlight-quote-box p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* Collapsible extended text */
+.message-collapsible {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.message-collapsible.expanded {
+  max-height: 2000px;
+}
+
+.message-collapsible p {
+  margin-bottom: 16px;
+}
+
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-50);
+  color: var(--blue-700);
+  border: 1px solid var(--blue-200);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin: 12px 0 28px;
+  transition: all 0.2s ease;
+}
+
+.read-more-btn:hover {
+  background: var(--blue-700);
+  color: white;
+  border-color: var(--blue-700);
+}
+
+.message-signature {
+  border-top: 1px solid var(--gray-100);
+  padding-top: 24px;
+}
+
+.signature-val {
+  font-size: 0.88rem;
+  color: var(--gray-600);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.signature-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  margin-bottom: 2px;
+}
+
+.signature-title {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-600);
+}
+
+.signature-school {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--gray-700);
+}
+
+.signature-branches {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--gray-500);
+}
+
+/* Credentials Card */
+.credentials-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  box-shadow: 0 15px 35px -5px rgba(0, 48, 135, 0.08);
+  border: 1px solid var(--gray-100);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.cred-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.cred-icon {
+  color: var(--gold-600);
+}
+
+.qualifications-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.qual-card {
+  background: #f8faff;
+  border: 1px solid #e2e8f5;
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.qual-type-tag {
+  display: inline-block;
+  background: var(--blue-100);
+  color: var(--blue-800);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.qual-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  margin-bottom: 4px;
+}
+
+.qual-card p {
+  font-size: 0.78rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+/* Timeline */
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold-500);
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px var(--gold-500);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.timeline-content h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  margin-bottom: 2px;
+}
+
+.timeline-content p {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+/* Principal Pillars */
+.principal-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: #fdfaf3;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(200, 169, 81, 0.3);
+}
+
+.pillar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blue-900);
+}
+
+.pillar-item strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--blue-900);
+}
+
+.pillar-item span {
+  font-size: 0.72rem;
+  color: var(--gray-600);
+}
+
+.principal-bottom-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+@media (max-width: 1024px) {
+  .principal-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .principal-visual-col {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .message-card, .credentials-card {
+    padding: 24px;
+  }
+  .qualifications-grid {
+    grid-template-columns: 1fr;
+  }
+  .principal-pillars {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .principal-tabs {
+    width: 100%;
+    flex-direction: column;
+  }
+  .ptab-btn {
+    justify-content: center;
+  }
+}

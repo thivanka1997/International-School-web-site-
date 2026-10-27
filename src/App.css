@@ -1,0 +1,9 @@
+/* App-level reset & global overrides */
+#root {
+  min-height: 100vh;
+}
+
+main {
+  /* clip (not hidden) so position: sticky still works inside sections */
+  overflow-x: clip;
+}

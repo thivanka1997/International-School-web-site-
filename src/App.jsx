@@ -6,6 +6,7 @@ import About from './components/About';
 import Stats from './components/Stats';
 import Academics from './components/Academics';
 import Principal from './components/Principal';
+import SchoolLife from './components/SchoolLife';
 import Gallery from './components/Gallery';
 import News from './components/News';
 import Contact from './components/Contact';
@@ -29,6 +30,7 @@ export default function App() {
         <About />
         <Stats />
         <Academics />
+        <SchoolLife />
         <Principal />
         <Gallery />
         <News />

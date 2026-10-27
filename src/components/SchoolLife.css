@@ -1,0 +1,97 @@
+.school-life-section {
+  padding: var(--section-padding);
+  padding-bottom: 0;
+  background: #0b1a4a;
+}
+
+.school-life-header {
+  text-align: center;
+  margin: 0 auto 56px;
+}
+
+.school-life-header .section-heading { color: var(--white); }
+
+.school-life-header .section-sub {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 auto;
+}
+
+/* Edge-to-edge mosaic: one large tile left, 2×2 on the right */
+.school-life-mosaic {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  grid-template-rows: repeat(2, clamp(200px, 22vw, 340px));
+  gap: 5px;
+  background: #0b1a4a;
+}
+
+.sl-tile {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--blue-900);
+}
+
+.sl-tile-large { grid-row: span 2; }
+
+.sl-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+}
+
+.sl-tile:hover img {
+  transform: scale(1.06);
+  filter: brightness(1);
+}
+
+.sl-tile figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 48px 24px 20px;
+  background: linear-gradient(180deg, transparent, rgba(5, 14, 40, 0.85));
+  color: var(--white);
+}
+
+.sl-tag {
+  align-self: flex-start;
+  background: var(--gold-500);
+  color: #0b1a4a;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+
+.sl-title {
+  font-family: 'Cormorant Garamond', var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.sl-tile-large .sl-title { font-size: 2.1rem; }
+
+@media (max-width: 900px) {
+  .school-life-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px repeat(2, 200px);
+  }
+  .sl-tile-large { grid-column: span 2; grid-row: auto; }
+}
+
+@media (max-width: 520px) {
+  .school-life-mosaic { grid-template-rows: 240px repeat(2, 160px); }
+  .sl-tile figcaption { padding: 32px 12px 12px; }
+  .sl-title { font-size: 1.1rem; }
+  .sl-tile-large .sl-title { font-size: 1.6rem; }
+  .sl-tag { font-size: 0.55rem; letter-spacing: 0.14em; }
+}

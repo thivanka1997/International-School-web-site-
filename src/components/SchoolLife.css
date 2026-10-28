@@ -25,6 +25,15 @@
   background: #0b1a4a;
 }
 
+.school-life-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.school-life-strip .sl-tile { height: clamp(200px, 20vw, 300px); }
+
 .sl-tile {
   position: relative;
   margin: 0;
@@ -86,10 +95,15 @@
     grid-template-rows: 300px repeat(2, 200px);
   }
   .sl-tile-large { grid-column: span 2; grid-row: auto; }
+  .school-life-strip { grid-template-columns: 1fr 1fr; }
+  .school-life-strip .sl-tile { height: 200px; }
+  .school-life-strip .sl-tile:last-child { grid-column: span 2; }
 }
 
 @media (max-width: 520px) {
   .school-life-mosaic { grid-template-rows: 240px repeat(2, 160px); }
+  .school-life-strip .sl-tile { height: 160px; }
+  .school-life-strip .sl-tile:last-child { height: 220px; }
   .sl-tile figcaption { padding: 32px 12px 12px; }
   .sl-title { font-size: 1.1rem; }
   .sl-tile-large .sl-title { font-size: 1.6rem; }

@@ -245,55 +245,20 @@
 
 /* ── Meet Our Teachers ── */
 .teachers-block {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: 56px;
-  align-items: center;
   margin-top: 90px;
   padding-top: 70px;
   border-top: 1px solid var(--gray-200);
 }
 
-.teachers-photo {
-  position: relative;
-  margin: 0;
-  padding: 14px;
-  background: white;
-  box-shadow: var(--shadow-lg);
-}
-
-/* Gold corner accents */
-.teachers-photo::before,
-.teachers-photo::after {
-  content: '';
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  border: 2px solid var(--gold-500);
-  pointer-events: none;
-}
-.teachers-photo::before { top: -10px; left: -10px; border-right: none; border-bottom: none; }
-.teachers-photo::after { bottom: -10px; right: -10px; border-left: none; border-top: none; }
-
-.teachers-photo img {
-  width: 100%;
-  aspect-ratio: 738 / 392;
-  object-fit: cover;
-}
-
-.teachers-photo figcaption {
-  padding-top: 12px;
+.teachers-text {
+  max-width: 860px;
+  margin: 0 auto;
   text-align: center;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--blue-800);
 }
 
 .teachers-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 800;
   line-height: 1.2;
   color: var(--blue-900);
@@ -306,31 +271,39 @@
 }
 
 .teachers-desc {
-  font-size: 1.02rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 1.85;
   color: var(--gray-600);
-  margin-bottom: 26px;
+  max-width: 680px;
+  margin: 0 auto 36px;
 }
 
+/* Three points as cards in a row */
 .teachers-points {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .teachers-points li {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 14px;
+  padding: 26px 20px;
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-top: 2px solid var(--gold-500);
+  box-shadow: var(--shadow-sm);
   font-size: 0.95rem;
   font-weight: 500;
+  line-height: 1.5;
   color: var(--gray-800);
 }
 
 .teachers-point-icon {
-  flex-shrink: 0;
-  width: 38px;
-  height: 38px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -340,10 +313,8 @@
 }
 
 @media (max-width: 900px) {
-  .teachers-block {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-top: 64px;
-    padding-top: 56px;
-  }
+  .teachers-block { margin-top: 64px; padding-top: 56px; }
+  .teachers-points { grid-template-columns: 1fr; gap: 12px; }
+  .teachers-points li { flex-direction: row; text-align: left; padding: 16px 18px; }
+  .teachers-point-icon { flex-shrink: 0; width: 40px; height: 40px; }
 }

@@ -15,21 +15,11 @@ function TeachersBlock() {
 
   return (
     <div className="teachers-block" ref={ref}>
-      <motion.figure
-        className="teachers-photo"
-        initial={{ opacity: 0, x: -40 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.7 }}
-      >
-        <img src="/images/teachers_team.jpg" alt="The Kingsbridge American College teaching staff" loading="lazy" />
-        <figcaption>Our teaching family · Kingsbridge American College</figcaption>
-      </motion.figure>
-
       <motion.div
         className="teachers-text"
-        initial={{ opacity: 0, x: 40 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.7, delay: 0.15 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7 }}
       >
         <span className="section-tag gold">Meet Our Teachers</span>
         <h3 className="teachers-title">

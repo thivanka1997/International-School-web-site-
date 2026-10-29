@@ -25,7 +25,7 @@ const filmstrip = [
   { src: '/images/students_refreshment.jpg', alt: 'Students sharing refreshments' },
   { src: '/images/hero/graduation.jpg', alt: 'Young graduates in caps and gowns' },
   { src: '/images/animal_costumes.jpg', alt: 'Animal costume day' },
-  { src: '/images/school-life/science_lab.webp', alt: 'Young scientists in the science lab' },
+  { src: '/images/school-life/reading_together.webp', alt: 'Students reading a book together' },
   { src: '/images/cultural_event.jpg', alt: 'Traditional games day' },
   { src: '/images/hero/grand_steps_peace.jpg', alt: '2026 Grand Steps concert' },
   { src: '/images/principal_motherly_care.jpg', alt: 'Principal with a student' },

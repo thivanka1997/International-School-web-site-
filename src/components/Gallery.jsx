@@ -71,6 +71,24 @@ const galleryItems = [
     featured: true,
     tag: 'Academic Ceremony',
   },
+  {
+    id: 13,
+    cat: 'Activities',
+    title: 'The Candle of Peace',
+    desc: 'Our little ones sharing a heartfelt message of peace and unity on stage at the 2026 Grand Steps concert.',
+    image: '/images/hero/grand_steps_peace.jpg',
+    featured: false,
+    tag: 'Grand Steps 2026',
+  },
+  {
+    id: 14,
+    cat: 'Activities',
+    title: 'Stage Dance Performance',
+    desc: 'Students performing an energetic, well-rehearsed dance item in front of a proud audience of parents.',
+    image: '/images/hero/stage_dance.jpg',
+    featured: false,
+    tag: 'Annual Concert',
+  },
 ];
 
 // Only offer filters that actually have photos

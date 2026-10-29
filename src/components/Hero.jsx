@@ -20,7 +20,6 @@ const backdrops = [
 const filmstrip = [
   { src: '/images/hero/kids_friends.jpg', alt: 'Students laughing together' },
   { src: '/images/hero/classroom.jpg', alt: 'Students learning in class' },
-  { src: '/images/principal_with_students.jpg', alt: 'Principal with young students' },
   { src: '/images/hero/stage_dance.jpg', alt: 'Stage dance performance' },
   { src: '/images/students_refreshment.jpg', alt: 'Students sharing refreshments' },
   { src: '/images/hero/graduation.jpg', alt: 'Young graduates in caps and gowns' },

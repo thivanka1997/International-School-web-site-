@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Sparkles, ExternalLink, Music, Palette, Sprout, Trophy, Heart, Waves, Sun } from 'lucide-react';
+import { Sparkles, ExternalLink, Music, Palette, Sprout, Trophy, Heart, Waves, Sun, GraduationCap } from 'lucide-react';
 import './News.css';
 
 const FacebookIcon = () => (
@@ -17,7 +17,7 @@ const activities = [
     title: 'A Home Away from Home! Summer Day Out',
     classLevel: 'Agar Villa Resort Day Out',
     desc: 'At Kingsbridge American College, our teachers don\'t just educate; they nurture, care, and love our little ones like their very own. Heartwarming moments from our Summer Day Out at Agar Villa Resort capturing the beautiful bond between staff and students.',
-    image: '/images/principal_motherly_care.jpg',
+    image: '/img/principal_motherly_care.webp',
     icon: <Heart size={18} />,
     color: '#e11d48',
     mediaType: 'Facebook Photo Post',
@@ -30,7 +30,7 @@ const activities = [
     title: 'Splish, Splash & Brightest Smiles!',
     classLevel: 'Pool Time & Outdoor Fun',
     desc: 'Pool time is always the highlight of our Kingsbridge Summer Day Out! Held at the beautiful Agar Villa Resort, our little ones had an absolute blast cooling off in the water with guided sessions that build water confidence and coordination.',
-    image: '/images/cultural_event.jpg',
+    image: '/img/cultural_event.webp',
     icon: <Waves size={18} />,
     color: '#0284c7',
     mediaType: 'Facebook Photo Post',
@@ -43,7 +43,7 @@ const activities = [
     title: '2026 Grand Steps Annual Concert on Stage',
     classLevel: 'Kingsbridge American College',
     desc: 'Proudly presenting the spectacular 2026 Grand Steps concert celebration on stage! Students in dazzling fairy and sports attires received awards and celebrated excellence with parents and teachers.',
-    image: '/images/principal_ceremony.jpg',
+    image: '/img/principal_ceremony.webp',
     icon: <Trophy size={18} />,
     color: '#d97706',
     mediaType: 'Official Concert Album',
@@ -57,7 +57,7 @@ const activities = [
     title: 'Animal Costume Day & Annual Sports Celebration',
     classLevel: 'Boralesgamuwa Branch',
     desc: 'Teachers and students brought storybook characters to life with lion, elephant, crocodile, and bunny masks! An imaginative celebration fostering joy and creativity.',
-    image: '/images/animal_costumes.jpg',
+    image: '/img/animal_costumes.webp',
     icon: <Sun size={18} />,
     color: '#ea580c',
     mediaType: 'Facebook Event Album',
@@ -70,7 +70,7 @@ const activities = [
     title: 'Walking Hand-in-Hand: Motherly Leadership',
     classLevel: 'All Grade Levels',
     desc: 'Madam Principal Dr. Nadeesha Jayawardena walking through our campus gardens hand-in-hand with her young students, demonstrating love, respect, and attentive motherly care every day.',
-    image: '/images/principal_walking_students.jpg',
+    image: '/img/principal_walking_students.webp',
     icon: <Heart size={18} />,
     color: '#be185d',
     mediaType: 'Facebook Photo Post',
@@ -83,7 +83,7 @@ const activities = [
     title: 'Spooky Little Creations Pumpkin Craft',
     classLevel: 'Lower Class',
     desc: 'Our little artists enjoyed decorating paper plates with orange paper squares, spooky black eyes, and mouths to create their own pumpkins, fostering fine motor skills and creativity.',
-    image: '/images/students_refreshment.jpg',
+    image: '/img/students_refreshment.webp',
     icon: <Palette size={18} />,
     color: '#d97706',
     mediaType: 'Facebook Reel / Video',
@@ -96,7 +96,7 @@ const activities = [
     title: 'Let the Music Fill Our Hearts & Carols',
     classLevel: 'Primary Class',
     desc: 'Our young stars took part in vocal training, practised lovely songs, and learned three beautiful Christmas carols with enthusiasm, building confidence and teamwork.',
-    image: '/images/hero_student.jpg',
+    image: '/img/hero_student.webp',
     icon: <Music size={18} />,
     color: '#2563eb',
     mediaType: 'Facebook Video',
@@ -109,12 +109,25 @@ const activities = [
     title: 'Growing Young Minds: Parts of a Plant',
     classLevel: 'Upper Class Explorers',
     desc: 'Hands-on exploration of roots, stems, leaves, flowers, and fruits. Children identified each plant part, placed it correctly, and discovered the vital role of plants in nature.',
-    image: '/images/principal_with_students.jpg',
+    image: '/img/principal_with_students.webp',
     icon: <Sprout size={18} />,
     color: '#16a34a',
     mediaType: 'Facebook Reel / Video',
     link: 'https://www.facebook.com/share/r/1GM8vG6mzK/',
     highlights: ['Observation & memory', 'Scientific thinking', 'Vocabulary building'],
+  },
+  {
+    id: 9,
+    category: 'School Events',
+    title: 'Annual Live in Concert & Graduation Ceremony 2022',
+    classLevel: 'Graduates of Batch 2022',
+    desc: 'It was an amazing night for all of us! Our kids brought us "Sailor On Board" with their wonderful performances. They did their best and we are so proud of them! Once again, congratulations to our graduates of batch 2022.',
+    image: '/img/concert_2022.webp',
+    icon: <GraduationCap size={18} />,
+    color: '#7c3aed',
+    mediaType: 'Facebook Photo Post',
+    link: 'https://www.facebook.com/share/p/1ZifnqXAn7/',
+    highlights: ['Sailor On Board', 'Batch 2022 graduates', 'Proud moments'],
   },
 ];
 
@@ -178,7 +191,7 @@ export default function News() {
               >
                 {/* Photo Display */}
                 <div className="act-img-frame">
-                  <img src={item.image} alt={item.title} className="act-card-photo" />
+                  <img src={item.image} alt={item.title} className="act-card-photo" loading="lazy" decoding="async" />
                   <div className="act-img-overlay" />
                   <span className="act-media-pill" style={{ background: item.color }}>
                     {item.mediaType}

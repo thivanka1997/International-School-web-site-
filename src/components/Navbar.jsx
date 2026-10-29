@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MapPin, ChevronDown, ArrowRight } from 'lucide-react';
-import logo from '/logo.png';
+import logo from '/logo.webp';
 import './Navbar.css';
 
 // Grouped like an editorial school site: two dropdowns plus three direct links

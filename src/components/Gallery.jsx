@@ -13,7 +13,7 @@ const galleryItems = [
     cat: 'School Life',
     title: 'Confident, Energetic Learning',
     desc: 'Senior primary students enjoying active outdoor exercises and sports activities with confidence.',
-    image: '/images/hero_student.jpg',
+    image: '/img/hero_student.webp',
     featured: false,
     tag: 'Age 10-12 Primary',
   },
@@ -22,7 +22,7 @@ const galleryItems = [
     cat: 'Activities',
     title: 'Animal Costume Day & Annual Sports',
     desc: 'Teachers and students bringing storybook animal masks to life with colorful flags and lively outdoor activities.',
-    image: '/images/animal_costumes.jpg',
+    image: '/img/animal_costumes.webp',
     featured: false,
     tag: 'Costume Celebration',
   },
@@ -31,7 +31,7 @@ const galleryItems = [
     cat: 'School Life',
     title: 'Healthy Refreshments & Social Time',
     desc: 'Students enjoying healthy drinks together in the campus courtyard, building lifelong friendships.',
-    image: '/images/students_refreshment.jpg',
+    image: '/img/students_refreshment.webp',
     featured: false,
     tag: 'Healthy Habits',
   },
@@ -40,7 +40,7 @@ const galleryItems = [
     cat: 'Activities',
     title: 'Traditional Games & Cultural Day',
     desc: 'Students joyfully participating in pillow fight (Kotta Pora) and cultural festivities on campus.',
-    image: '/images/cultural_event.jpg',
+    image: '/img/cultural_event.webp',
     featured: false,
     tag: 'Cultural Activities',
   },
@@ -49,7 +49,7 @@ const galleryItems = [
     cat: 'Leadership',
     title: 'Motherly Guidance & Care',
     desc: 'Madam Principal Dr. Nadeesha Jayawardena walking hand-in-hand with students, exemplifying motherly love and care.',
-    image: '/images/principal_walking_students.jpg',
+    image: '/img/principal_walking_students.webp',
     featured: false,
     tag: 'Motherly Guidance',
   },
@@ -58,7 +58,7 @@ const galleryItems = [
     cat: 'Leadership',
     title: 'Motherly Affection & Guidance',
     desc: 'Madam Principal sharing a tender, loving moment with her students, reflecting our motherly care ethos.',
-    image: '/images/principal_motherly_care.jpg',
+    image: '/img/principal_motherly_care.webp',
     featured: false,
     tag: 'Motherly Care',
   },
@@ -67,7 +67,7 @@ const galleryItems = [
     cat: 'Leadership',
     title: 'Madam Principal Dr. Nadeesha Jayawardena',
     desc: 'Founder & Principal addressing the academic diploma ceremony at BMICH Colombo in doctoral regalia.',
-    image: '/images/principal_ceremony.jpg',
+    image: '/img/principal_ceremony.webp',
     featured: true,
     tag: 'Academic Ceremony',
   },
@@ -76,7 +76,7 @@ const galleryItems = [
     cat: 'Activities',
     title: 'The Candle of Peace',
     desc: 'Our little ones sharing a heartfelt message of peace and unity on stage at the 2026 Grand Steps concert.',
-    image: '/images/hero/grand_steps_peace.jpg',
+    image: '/img/hero/grand_steps_peace.webp',
     featured: false,
     tag: 'Grand Steps 2026',
   },
@@ -85,7 +85,7 @@ const galleryItems = [
     cat: 'Activities',
     title: 'Stage Dance Performance',
     desc: 'Students performing an energetic, well-rehearsed dance item in front of a proud audience of parents.',
-    image: '/images/hero/stage_dance.jpg',
+    image: '/img/hero/stage_dance.webp',
     featured: false,
     tag: 'Annual Concert',
   },
@@ -160,7 +160,9 @@ export default function Gallery() {
                 <div className="gallery-card-inner">
                   <img 
                     src={item.image} 
-                    alt={item.title} 
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
                     className="gallery-card-img"
                   />
                   <div className="gallery-card-overlay">

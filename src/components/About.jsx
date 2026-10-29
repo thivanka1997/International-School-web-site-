@@ -6,8 +6,8 @@ import './About.css';
 
 // Photos that crossfade in the About frame
 const aboutPhotos = [
-  { src: '/images/kids_friends_group.webp', alt: 'Kingsbridge students laughing together arm in arm', pos: 'center 30%' },
-  { src: '/images/kids_circle.webp', alt: 'Young Kingsbridge students lying in a circle on a play mat', pos: 'center center' },
+  { src: '/img/kids_friends_group.webp', alt: 'Kingsbridge students laughing together arm in arm', pos: 'center 30%' },
+  { src: '/img/kids_circle.webp', alt: 'Young Kingsbridge students lying in a circle on a play mat', pos: 'center center' },
 ];
 
 const keyFeatures = [
@@ -90,6 +90,8 @@ export default function About() {
                   key={p.src}
                   src={p.src}
                   alt={p.alt}
+                  loading="lazy"
+                  decoding="async"
                   className={`about-real-img ${i === photo ? 'active' : ''}`}
                   style={{ objectPosition: p.pos }}
                   aria-hidden={i !== photo}

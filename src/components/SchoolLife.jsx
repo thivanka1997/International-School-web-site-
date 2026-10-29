@@ -4,12 +4,12 @@ import './SchoolLife.css';
 
 // School life photos, shown as an even grid of equal tiles
 const moments = [
-  { src: '/images/school-life/reading_together.webp', title: 'Reading Together', tag: 'Library Time', pos: 'center 45%' },
-  { src: '/images/school-life/hands_on_learning.webp', title: 'Hands-on Learning', tag: 'Science & Crafts', pos: 'center 45%' },
-  { src: '/images/school-life/classroom_colouring.webp', title: 'Colour, Read & Learn', tag: 'Classroom', pos: 'center 55%' },
-  { src: '/images/school-life/football.webp', title: 'On the Field', tag: 'Football', pos: 'center 40%' },
-  { src: '/images/hero/classroom.jpg', title: 'Eager Minds', tag: 'Classroom', pos: '35% center' },
-  { src: '/images/hero/graduation.jpg', title: 'Proud Graduates', tag: 'Graduation', pos: 'center 40%' },
+  { src: '/img/school-life/reading_together.webp', title: 'Reading Together', tag: 'Library Time', pos: 'center 45%' },
+  { src: '/img/school-life/hands_on_learning.webp', title: 'Hands-on Learning', tag: 'Science & Crafts', pos: 'center 45%' },
+  { src: '/img/school-life/classroom_colouring.webp', title: 'Colour, Read & Learn', tag: 'Classroom', pos: 'center 55%' },
+  { src: '/img/school-life/football.webp', title: 'On the Field', tag: 'Football', pos: 'center 40%' },
+  { src: '/img/hero/classroom.webp', title: 'Eager Minds', tag: 'Classroom', pos: '35% center' },
+  { src: '/img/hero/graduation.webp', title: 'Proud Graduates', tag: 'Graduation', pos: 'center 40%' },
 ];
 
 function MomentTile({ m, delay, inView }) {

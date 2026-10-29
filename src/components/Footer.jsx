@@ -1,5 +1,5 @@
 import { Phone, MapPin, Mail } from 'lucide-react';
-import logo from '/logo.png';
+import logo from '/logo.webp';
 import './Footer.css';
 
 const FacebookIcon = () => (

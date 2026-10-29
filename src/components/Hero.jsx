@@ -11,26 +11,26 @@ const stats = [
 
 // Large photos that slowly crossfade behind the headline
 const backdrops = [
-  { src: '/images/hero/kids_friends.jpg', pos: 'center 35%' },
-  { src: '/images/hero/grand_steps_peace.jpg', pos: 'center 55%' },
-  { src: '/images/hero_student.jpg', pos: 'center 30%' },
+  { src: '/img/hero/kids_friends.webp', pos: 'center 35%' },
+  { src: '/img/hero/grand_steps_peace.webp', pos: 'center 55%' },
+  { src: '/img/hero_student.webp', pos: 'center 30%' },
 ];
 
 // Photo strip along the bottom of the hero (scrolls continuously)
 const filmstrip = [
-  { src: '/images/hero/kids_friends.jpg', alt: 'Students laughing together' },
-  { src: '/images/hero/classroom.jpg', alt: 'Students learning in class' },
-  { src: '/images/hero/stage_dance.jpg', alt: 'Stage dance performance' },
-  { src: '/images/students_refreshment.jpg', alt: 'Students sharing refreshments' },
-  { src: '/images/hero/graduation.jpg', alt: 'Young graduates in caps and gowns' },
-  { src: '/images/animal_costumes.jpg', alt: 'Animal costume day' },
-  { src: '/images/school-life/reading_together.webp', alt: 'Students reading a book together' },
-  { src: '/images/cultural_event.jpg', alt: 'Traditional games day' },
-  { src: '/images/hero/grand_steps_peace.jpg', alt: '2026 Grand Steps concert' },
-  { src: '/images/principal_motherly_care.jpg', alt: 'Principal with a student' },
-  { src: '/images/hero/sports_day.jpg', alt: 'Sports day' },
-  { src: '/images/hero_student.jpg', alt: 'Student playing outdoors' },
-  { src: '/images/principal_walking_students.jpg', alt: 'Principal walking with students' },
+  { src: '/img/thumbs/hero/kids_friends.webp', alt: 'Students laughing together' },
+  { src: '/img/thumbs/hero/classroom.webp', alt: 'Students learning in class' },
+  { src: '/img/thumbs/hero/stage_dance.webp', alt: 'Stage dance performance' },
+  { src: '/img/thumbs/students_refreshment.webp', alt: 'Students sharing refreshments' },
+  { src: '/img/thumbs/hero/graduation.webp', alt: 'Young graduates in caps and gowns' },
+  { src: '/img/thumbs/animal_costumes.webp', alt: 'Animal costume day' },
+  { src: '/img/thumbs/school-life/reading_together.webp', alt: 'Students reading a book together' },
+  { src: '/img/thumbs/cultural_event.webp', alt: 'Traditional games day' },
+  { src: '/img/thumbs/hero/grand_steps_peace.webp', alt: '2026 Grand Steps concert' },
+  { src: '/img/thumbs/principal_motherly_care.webp', alt: 'Principal with a student' },
+  { src: '/img/thumbs/hero/sports_day.webp', alt: 'Sports day' },
+  { src: '/img/thumbs/hero_student.webp', alt: 'Student playing outdoors' },
+  { src: '/img/thumbs/principal_walking_students.webp', alt: 'Principal walking with students' },
 ];
 
 const BACKDROP_MS = 7000;
@@ -44,6 +44,8 @@ export default function Hero() {
   // Track the real viewport height so the hero fills the first screen accurately
   const [vh, setVh] = useState(() => (typeof window === 'undefined' ? 900 : window.innerHeight));
   const [bg, setBg] = useState(0);
+  // Backdrops are added one slide ahead, so only the first photo loads up front
+  const [loadedBgs, setLoadedBgs] = useState(2);
   const reduceMotion = useReducedMotion();
   const delay = reduceMotion ? 0 : INTRO_DELAY;
 
@@ -54,7 +56,10 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    const t = setInterval(() => setBg((i) => (i + 1) % backdrops.length), BACKDROP_MS);
+    const t = setInterval(() => {
+      setBg((i) => (i + 1) % backdrops.length);
+      setLoadedBgs((n) => Math.min(backdrops.length, n + 1));
+    }, BACKDROP_MS);
     return () => clearInterval(t);
   }, []);
 
@@ -68,11 +73,12 @@ export default function Hero() {
     <section id="home" className="hero" style={{ '--hero-vh': `${vh}px` }}>
       {/* Dim photo backdrop */}
       <div className="hero-media" aria-hidden="true">
-        {backdrops.map((b, i) => (
+        {backdrops.slice(0, loadedBgs).map((b, i) => (
           <img
             key={b.src}
             src={b.src}
             alt=""
+            fetchPriority={i === 0 ? 'high' : 'low'}
             className={`hero-bg ${i === bg ? 'active' : ''}`}
             style={{ objectPosition: b.pos }}
           />

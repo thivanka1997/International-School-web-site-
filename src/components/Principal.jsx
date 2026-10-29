@@ -57,9 +57,11 @@ export default function Principal() {
             <div className="principal-photo-card">
               <div className="principal-photo-wrap">
                 <img 
-                  src="/images/principal_ceremony.jpg" 
+                  src="/img/principal_ceremony.webp" 
                   alt="Dr. Nadeesha Mitusuko Jayawardena addressing graduation ceremony" 
                   className="principal-main-img"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="principal-photo-badge">
                   <GraduationCap size={16} />
@@ -93,9 +95,11 @@ export default function Principal() {
             >
               <div className="mc-photo-wrap">
                 <img 
-                  src="/images/principal_with_students.jpg" 
+                  src="/img/principal_with_students.webp" 
                   alt="Dr. Nadeesha Jayawardena nurturing students at Kingsbridge" 
                   className="mc-thumb"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="mc-content">

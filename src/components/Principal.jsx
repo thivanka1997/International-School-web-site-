@@ -243,7 +243,7 @@ export default function Principal() {
                   {/* Sign-off */}
                   <div className="message-signature">
                     <p className="signature-val">With heartfelt gratitude and warm regards,</p>
-                    <h4 className="signature-name">Dr. Nadeesha Jayawardena</h4>
+                    <h4 className="signature-name">Dr. Nadeesha M. Nandesena (Dr. Nadeesha Jayawardena)</h4>
                     <span className="signature-title">Founder & Principal</span>
                     <span className="signature-school">Kingsbridge American College</span>
                     <span className="signature-branches">Boralesgamuwa, Mattegoda & Horana Branches, Sri Lanka</span>
